@@ -28,7 +28,7 @@ modules:
     sources:
       - type: git
         url: https://gitlab.com/cubocore/libcprime.git
-        tag: v4.2.0
+        tag: v4.3.0
   - name: libarchive-qt
     buildsystem: cmake-ninja
     config-opts:
@@ -51,5 +51,5 @@ modules:
         path: org.cubocore.CoreArchiver.appdata.xml
       - type: git
         url: https://gitlab.com/cubocore/coreapps/corearchiver.git
-        tag: v4.2.0
+        tag: v4.3.0
 
