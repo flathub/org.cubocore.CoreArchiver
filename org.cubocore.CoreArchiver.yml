@@ -8,7 +8,7 @@ finish-args:
   - --socket=fallback-x11
   - --socket=wayland
   - --filesystem=home   # Required to archive any files and open any archived files
-  - --filesystem=xdg-config
+  - --filesystem=xdg-config:create
   - --device=dri
   - --talk-name=org.freedesktop.Notifications
 cleanup:
@@ -53,4 +53,3 @@ modules:
       - type: git
         url: https://gitlab.com/cubocore/coreapps/corearchiver.git
         tag: v4.5.0
-
