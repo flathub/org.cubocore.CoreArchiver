@@ -1,8 +1,11 @@
 app-id: org.cubocore.CoreArchiver
 runtime: org.kde.Platform
-runtime-version: '5.15-23.08'
+runtime-version: '6.10'
 sdk: org.kde.Sdk
 command: corearchiver
+rename-desktop-file: cc.cubocore.CoreArchiver.desktop
+rename-icon: cc.cubocore.CoreArchiver
+rename-appdata-file: cc.cubocore.CoreArchiver.metainfo.xml
 finish-args:
   - --share=ipc
   - --socket=fallback-x11
@@ -22,23 +25,28 @@ cleanup:
 modules:
   - name: libcprime
     buildsystem: cmake-ninja
+    config-opts: [
+        "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+    ]
     sources:
       - type: git
         url: https://gitlab.com/cubocore/libcprime.git
-        tag: v4.5.0
+        commit: 17d4c94f3be2c7f67dc757cf852f0144945c2c69
+        tag: v5.0.1
   - name: libarchive-qt
-    buildsystem: cmake-ninja
+    buildsystem: meson
+    config-opts:
+      - -Duse_qt_version=qt6
     sources:
       - type: git
         url: https://gitlab.com/marcusbritanicus/libarchive-qt
-        tag: v2.0.4
+        tag: v2.0.8
   - name: corearchiver
-    post-install:
-      - install -Dp -m 644 org.cubocore.CoreArchiver.appdata.xml /app/share/appdata/org.cubocore.CoreArchiver.appdata.xml
     buildsystem: cmake-ninja
     sources:
-      - type: file
-        path: org.cubocore.CoreArchiver.appdata.xml
       - type: git
         url: https://gitlab.com/cubocore/coreapps/corearchiver.git
-        tag: v4.5.0
+        commit: 1e8604711ebaf560e937e76a9f7810752efccb98
+        tag: v5.0.1
+      - type: patch
+        path: fix-appID-name.patch
