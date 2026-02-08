@@ -1,0 +1,33 @@
+--- a/cc.cubocore.CoreArchiver.desktop
++++ b/cc.cubocore.CoreArchiver.desktop
+@@ -5,4 +5,4 @@
+ Exec=corearchiver %F
+-Icon=cc.cubocore.CoreArchiver
++Icon=org.cubocore.CoreArchiver
+ Type=Application
+ Categories=Qt;Utility;FileTools;Archiving;Compression;X-CSuite;
+--- a/src/main.cpp
++++ b/src/main.cpp
+@@ -32,6 +32,6 @@
+ #include "corearchiver.h"
+ 
+-extern const QString appID = QStringLiteral(APP_ID);
++extern const QString appID = QStringLiteral("org.cubocore.CoreArchiver");
+ 
+ 
+ int main(int argc, char *argv[])
+--- a/cc.cubocore.CoreArchiver.metainfo.xml
++++ b/cc.cubocore.CoreArchiver.metainfo.xml
+@@ -4,4 +4,4 @@
+ <component type="desktop-application">
+-    <id>cc.cubocore.CoreArchiver</id>
++    <id>org.cubocore.CoreArchiver</id>
+ 
+     <metadata_license>CC0-1.0</metadata_license>
+@@ -11,5 +11,5 @@
+     <developer_name>CuboCore Group</developer_name>
+ 
+-    <launchable type="desktop-id">cc.cubocore.CoreArchiver.desktop</launchable>
++    <launchable type="desktop-id">org.cubocore.CoreArchiver.desktop</launchable>
+ 
+     <name>CoreArchiver</name>
